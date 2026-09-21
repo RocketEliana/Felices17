@@ -220,7 +220,7 @@
   .stage.visible .photo:nth-child(3){ transition-delay:.3s; }
 
   .photo img{
-    width:100%; height:100%; object-fit:cover; display:block;
+    width:100%; height:100%; object-fit:cover; object-position:top center; display:block;
     transform:scale(1.08);
     animation:kenburns 9s ease-in-out infinite alternate;
   }
@@ -294,6 +294,11 @@
   }
 
   @media (max-width:520px){
+    .stage{
+      min-height:auto;
+      padding:56px 6vw;
+    }
+    .stage-title{ margin-bottom:30px; }
     .gallery{
       flex-wrap:nowrap;
       overflow-x:auto;
@@ -314,5 +319,11 @@
     }
     .gallery-hint{
       display:block;
+      margin-top:10px;
+      margin-bottom:0;
+    }
+    .closing{
+      min-height:auto;
+      padding:80px 8vw;
     }
   }
