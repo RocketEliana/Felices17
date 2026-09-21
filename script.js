@@ -1,38 +1,44 @@
-  // Intenta reproducir la música al cargar; si el navegador lo bloquea,
-  // muestra un botón a juego con la web y también arranca con el primer
-  // toque/clic/tecla en cualquier parte de la página
+  // Intenta reproducir la música al cargar (silenciosamente, puede fallar).
+  // El botón queda SIEMPRE visible como control manual fiable, porque
+  // algunos navegadores (p. ej. el de dentro de WhatsApp) dicen que la
+  // música ya suena aunque en realidad esté muda, y no podemos fiarnos de eso.
   (function(){
     const music = document.getElementById('bgMusic');
     const prompt = document.getElementById('musicPrompt');
     if(!music) return;
     music.volume = 0.85;
 
-    function hidePrompt(){
-      if(prompt){ prompt.classList.add('hide'); prompt.classList.remove('show'); }
+    let playing = false;
+
+    function setPlayingUI(isPlaying){
+      playing = isPlaying;
+      if(!prompt) return;
+      prompt.classList.toggle('is-playing', isPlaying);
+      const label = prompt.querySelector('.music-text');
+      if(label) label.textContent = isPlaying ? 'música activada' : 'tócame, es para ti';
     }
 
-    function startMusic(){
-      music.play().catch(()=>{});
-      hidePrompt();
-      ['click','touchstart','keydown'].forEach(evt =>
-        document.removeEventListener(evt, startMusic)
-      );
-      if(prompt) prompt.removeEventListener('click', startMusic);
-    }
-
+    // Intento silencioso de autoplay (funciona en algunos navegadores/casos)
     const playPromise = music.play();
     if(playPromise !== undefined){
-      playPromise.then(()=>{
-        hidePrompt();
-      }).catch(()=>{
-        if(prompt) setTimeout(()=> prompt.classList.add('show'), 800);
-        ['click','touchstart','keydown'].forEach(evt =>
-          document.addEventListener(evt, startMusic, { once:true })
-        );
+      playPromise.then(()=> setPlayingUI(true)).catch(()=> setPlayingUI(false));
+    }
+
+    // El botón siempre visible: toca para reproducir o pausar
+    if(prompt){
+      prompt.addEventListener('click', () => {
+        if(music.paused){
+          music.play().then(()=> setPlayingUI(true)).catch(()=> setPlayingUI(false));
+        } else {
+          music.pause();
+          setPlayingUI(false);
+        }
       });
     }
 
-    if(prompt) prompt.addEventListener('click', startMusic);
+    // Refleja el estado real del audio si cambia por otra vía
+    music.addEventListener('pause', ()=> setPlayingUI(false));
+    music.addEventListener('play', ()=> setPlayingUI(true));
   })();
 
   // Genera un campo de estrellitas titilando por toda la página

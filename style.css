@@ -259,28 +259,26 @@
   }
   .closing.visible .signature{ opacity:1; }
 
-  /* ---- Botón flotante para activar la música ---- */
+  /* ---- Botón flotante para activar la música (siempre visible) ---- */
   .music-prompt{
-    position:fixed; left:50%; bottom:28px; z-index:1000;
-    transform:translate(-50%, 20px);
+    position:fixed; right:20px; bottom:24px; z-index:1000;
     display:flex; align-items:center; gap:10px;
-    padding:12px 22px; border-radius:999px;
+    padding:12px 20px; border-radius:999px;
     background:linear-gradient(135deg, var(--card), #1f1f2a);
     border:1px solid var(--accent);
     color:var(--accent);
     font-family:Georgia, 'Times New Roman', serif;
-    font-size:14px; letter-spacing:.5px;
-    box-shadow:0 10px 30px rgba(0,0,0,.5), 0 0 0 0 rgba(232,184,75,.6);
+    font-size:13px; letter-spacing:.4px;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
     cursor:pointer;
-    opacity:0; visibility:hidden;
-    transition:opacity .6s ease, transform .6s ease, visibility .6s;
     animation:musicPulse 2.2s ease-in-out infinite;
+    transition:padding .4s ease, background .4s ease;
   }
-  .music-prompt.show{
-    opacity:1; visibility:visible; transform:translate(-50%, 0);
+  .music-prompt.is-playing{
+    padding:12px; background:linear-gradient(135deg, var(--card), #1f1f2a);
   }
-  .music-prompt.hide{
-    opacity:0 !important; visibility:hidden !important; transform:translate(-50%, 20px) !important;
+  .music-prompt.is-playing .music-text{
+    display:none;
   }
   .music-prompt .music-note{
     display:inline-block; font-size:17px; color:var(--accent2);
