@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuestro pedazo de persona</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sparkle-field" id="sparkleField"></div>
+
+  <!-- INTRO: LA VIDA CONTADA CON MONIGOTES -->
+  <div class="arcade" id="arcade">
+    <div class="scene-stage">
+
+      <!-- ESCENA 1: nace el bebé -->
+      <div class="scene-slide active" data-scene="0">
+        <svg viewBox="0 0 400 260">
+          <text class="fig heart heart1" x="150" y="130" font-size="20" fill="#e8768a">♥</text>
+          <text class="fig heart heart2" x="200" y="110" font-size="16" fill="#e8b84b">♥</text>
+          <text class="fig heart heart3" x="250" y="130" font-size="18" fill="#e8768a">♥</text>
+          <text class="fig heart heart4" x="175" y="95" font-size="13" fill="#f5f0e6">✦</text>
+          <text class="fig heart heart5" x="225" y="85" font-size="15" fill="#e8b84b">✦</text>
+          <text class="fig heart heart6" x="200" y="60" font-size="11" fill="#f5f0e6">✦</text>
+
+          <g class="fig parentL" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="120" cy="90" r="18" />
+            <line x1="120" y1="108" x2="120" y2="180" />
+            <line x1="120" y1="130" x2="90" y2="160" />
+            <line class="armL" x1="120" y1="130" x2="180" y2="150" stroke="#f5f0e6" style="opacity:0" />
+            <line x1="120" y1="180" x2="100" y2="230" />
+            <line x1="120" y1="180" x2="140" y2="230" />
+          </g>
+
+          <g class="fig parentR" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="280" cy="90" r="18" />
+            <line x1="280" y1="108" x2="280" y2="180" />
+            <line x1="280" y1="130" x2="310" y2="160" />
+            <line class="armR" x1="280" y1="130" x2="220" y2="150" stroke="#f5f0e6" style="opacity:0" />
+            <line x1="280" y1="180" x2="260" y2="230" />
+            <line x1="280" y1="180" x2="300" y2="230" />
+          </g>
+
+          <g class="fig baby" stroke="#e8b84b" stroke-width="4" fill="none" stroke-linecap="round" style="transform-origin:200px 170px; transform:scale(0)">
+            <circle cx="200" cy="150" r="14" />
+            <line x1="200" y1="164" x2="200" y2="200" />
+            <line x1="200" y1="180" x2="185" y2="195" />
+            <line x1="200" y1="180" x2="215" y2="195" />
+            <line x1="200" y1="200" x2="188" y2="220" />
+            <line x1="200" y1="200" x2="212" y2="220" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- ESCENA 2: primeros pasos -->
+      <div class="scene-slide" data-scene="1">
+        <svg viewBox="0 0 400 260">
+          <g class="cheerL" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round" style="transform-origin:70px 130px">
+            <circle cx="70" cy="90" r="16" />
+            <line x1="70" y1="106" x2="70" y2="170" />
+            <line x1="70" y1="130" x2="45" y2="105" />
+            <line x1="70" y1="130" x2="95" y2="105" />
+            <line x1="70" y1="170" x2="52" y2="220" />
+            <line x1="70" y1="170" x2="88" y2="220" />
+          </g>
+          <g class="fig toddler" stroke="#e8b84b" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="200" cy="150" r="13" />
+            <line x1="200" y1="163" x2="200" y2="195" />
+            <line x1="200" y1="172" x2="182" y2="185" />
+            <line x1="200" y1="172" x2="218" y2="185" />
+            <line x1="200" y1="195" x2="186" y2="215" />
+            <line x1="200" y1="195" x2="214" y2="220" />
+          </g>
+          <g class="cheerR" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round" style="transform-origin:330px 130px">
+            <circle cx="330" cy="90" r="16" />
+            <line x1="330" y1="106" x2="330" y2="170" />
+            <line x1="330" y1="130" x2="305" y2="105" />
+            <line x1="330" y1="130" x2="355" y2="105" />
+            <line x1="330" y1="170" x2="312" y2="220" />
+            <line x1="330" y1="170" x2="348" y2="220" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- ESCENA 3: jugando con legos -->
+      <div class="scene-slide" data-scene="2">
+        <svg viewBox="0 0 400 260">
+          <!-- niño sentado -->
+          <g class="fig legoKid" stroke="#e8b84b" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="140" cy="108" r="15" />
+            <line x1="140" y1="123" x2="140" y2="175" />
+            <line x1="140" y1="175" x2="108" y2="190" />
+            <line x1="140" y1="175" x2="170" y2="192" />
+            <line class="legoArm" x1="140" y1="140" x2="190" y2="155" stroke="#e8b84b" style="transform-origin:140px 140px" />
+            <line x1="140" y1="140" x2="112" y2="160" />
+          </g>
+          <!-- torre de piezas de lego, creciendo bloque a bloque -->
+          <g stroke="none">
+            <rect class="fig block1" x="228" y="190" width="38" height="20" rx="3" fill="#c96a4f" style="transform-origin:247px 200px" />
+            <rect class="fig block2" x="228" y="168" width="38" height="20" rx="3" fill="#e8b84b" style="transform-origin:247px 178px" />
+            <rect class="fig block3" x="228" y="146" width="38" height="20" rx="3" fill="#5b8fc9" style="transform-origin:247px 156px" />
+            <rect class="fig block4" x="228" y="124" width="38" height="20" rx="3" fill="#7fbf7f" style="transform-origin:247px 134px" />
+            <circle cx="238" cy="122" r="4" fill="#7fbf7f" />
+            <circle cx="256" cy="122" r="4" fill="#7fbf7f" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- ESCENA 4: amigos, choque de manos -->
+      <div class="scene-slide" data-scene="3">
+        <svg viewBox="0 0 400 260">
+          <text class="fig highfive" x="200" y="110" font-size="20" fill="#e8b84b" text-anchor="middle">✦</text>
+          <g class="fig teenL" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="150" cy="100" r="16" />
+            <line x1="150" y1="116" x2="150" y2="190" />
+            <line x1="150" y1="135" x2="190" y2="125" />
+            <line x1="150" y1="135" x2="120" y2="170" />
+            <line x1="150" y1="190" x2="130" y2="235" />
+            <line x1="150" y1="190" x2="165" y2="235" />
+          </g>
+          <g class="fig teenR" stroke="#e8b84b" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="250" cy="100" r="16" />
+            <line x1="250" y1="116" x2="250" y2="190" />
+            <line x1="250" y1="135" x2="210" y2="125" />
+            <line x1="250" y1="135" x2="280" y2="170" />
+            <line x1="250" y1="190" x2="230" y2="235" />
+            <line x1="250" y1="190" x2="270" y2="235" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- ESCENA 5: hoy, abrazo grande -->
+      <div class="scene-slide" data-scene="4">
+        <svg viewBox="0 0 400 260">
+          <text class="fig heart heart1" x="150" y="90" font-size="18" fill="#e8768a">♥</text>
+          <text class="fig heart heart2" x="250" y="80" font-size="16" fill="#e8b84b">✦</text>
+          <text class="fig heart heart3" x="200" y="60" font-size="20" fill="#e8768a">♥</text>
+          <g class="fig grownL" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="150" cy="95" r="18" />
+            <line x1="150" y1="113" x2="150" y2="200" />
+            <line class="bigHug" x1="150" y1="140" x2="230" y2="150" stroke="#f5f0e6" style="opacity:0" />
+            <line x1="150" y1="140" x2="115" y2="175" />
+            <line x1="150" y1="200" x2="130" y2="245" />
+            <line x1="150" y1="200" x2="170" y2="245" />
+          </g>
+          <g class="fig grownR" stroke="#e8b84b" stroke-width="4" fill="none" stroke-linecap="round">
+            <circle cx="250" cy="95" r="18" />
+            <line x1="250" y1="113" x2="250" y2="200" />
+            <line class="bigHug" x1="250" y1="140" x2="170" y2="150" stroke="#e8b84b" style="opacity:0" />
+            <line x1="250" y1="140" x2="285" y2="175" />
+            <line x1="250" y1="200" x2="230" y2="245" />
+            <line x1="250" y1="200" x2="270" y2="245" />
+          </g>
+        </svg>
+      </div>
+
+    </div>
+
+    <div class="scene-text" id="sceneText">Naciste, y desde ese día te quisimos y cuidamos</div>
+    <div class="scene-dots" id="sceneDots">
+      <span class="active"></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="scene-hint">toca para saltar</div>
+  </div>
+
+  <!-- PORTADA -->
+  <section class="cover">
+    <h1><span class="shine-text">NOMBRE — de bebé a pedazo de persona</span></h1>
+    <p>Un repaso a todos estos años</p>
+    <div class="scrolldown">↓ desliza</div>
+  </section>
+
+  <!-- ETAPA 1 -->
+  <section class="stage" data-stage>
+    <div class="stage-label">0 — 1 año</div>
+    <div class="stage-title"><span class="glint">✦</span>El día que llegaste, todo cambió<span class="glint">✦</span></div>
+    <div class="gallery">
+      <div class="photo"><img src="anime/foto1.jpg" alt="Foto 1" data-label="FOTO 1"></div>
+      <div class="photo"><img src="anime/foto2.jpg" alt="Foto 2" data-label="FOTO 2"></div>
+    </div>
+  </section>
+
+  <!-- ETAPA 2 -->
+  <section class="stage" data-stage>
+    <div class="stage-label">Infancia</div>
+    <div class="stage-title"><span class="glint">✦</span>Cada paso, una aventura<span class="glint">✦</span></div>
+    <div class="gallery">
+      <div class="photo"><img src="anime/foto3.jpg" alt="Foto 3" data-label="FOTO 3"></div>
+      <div class="photo"><img src="anime/foto4.jpg" alt="Foto 4" data-label="FOTO 4"></div>
+      <div class="photo"><img src="anime/foto5.jpg" alt="Foto 5" data-label="FOTO 5"></div>
+    </div>
+  </section>
+
+  <!-- ETAPA 3 -->
+  <section class="stage" data-stage>
+    <div class="stage-label">Colegio</div>
+    <div class="stage-title"><span class="glint">✦</span>Creciendo sin darnos cuenta<span class="glint">✦</span></div>
+    <div class="gallery">
+      <div class="photo"><img src="anime/foto6.jpg" alt="Foto 6" data-label="FOTO 6"></div>
+      <div class="photo"><img src="anime/foto7.jpg" alt="Foto 7" data-label="FOTO 7"></div>
+    </div>
+  </section>
+
+  <!-- ETAPA 4 (nueva) -->
+  <section class="stage" data-stage>
+    <div class="stage-label">Adolescencia</div>
+    <div class="stage-title"><span class="glint">✦</span>Empezaste a construir quién eres<span class="glint">✦</span></div>
+    <div class="gallery">
+      <div class="photo"><img src="anime/foto8.jpg" alt="Foto 8" data-label="FOTO 8"></div>
+      <div class="photo"><img src="anime/foto9.jpg" alt="Foto 9" data-label="FOTO 9"></div>
+    </div>
+  </section>
+
+  <!-- ETAPA 5 (nueva) -->
+  <section class="stage" data-stage>
+    <div class="stage-label">Amigos y risas</div>
+    <div class="stage-title"><span class="glint">✦</span>Los momentos que nos hicieron reír<span class="glint">✦</span></div>
+    <div class="gallery">
+      <div class="photo"><img src="anime/foto10.jpg" alt="Foto 10" data-label="FOTO 10"></div>
+      <div class="photo"><img src="anime/foto11.jpg" alt="Foto 11" data-label="FOTO 11"></div>
+      <div class="photo"><img src="anime/foto12.jpg" alt="Foto 12" data-label="FOTO 12"></div>
+    </div>
+  </section>
+
+  <!-- ETAPA 6 -->
+  <section class="stage" data-stage>
+    <div class="stage-label">Hoy</div>
+    <div class="stage-title"><span class="glint">✦</span>Y ahora… mírate<span class="glint">✦</span></div>
+    <div class="gallery">
+      <div class="photo"><img src="anime/actual1.jpg" alt="Foto actual 1" data-label="FOTO ACTUAL 1"></div>
+      <div class="photo"><img src="anime/actual2.jpg" alt="Foto actual 2" data-label="FOTO ACTUAL 2"></div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="closing" data-stage>
+    <p>Feliz cumpleaños. Cada foto de este vídeo es un trocito de todo lo que nos has hecho vivir. Estamos muy orgullosos de la persona en la que te has convertido.</p>
+    <div class="signature"><span class="shine-text">CON TODO NUESTRO AMOR</span></div>
+  </section>
+<script src="script.js" defer></script>
+</body>
+</html>
