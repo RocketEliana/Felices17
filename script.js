@@ -86,11 +86,11 @@
     sceneIndex++;
     if(sceneIndex >= slides.length){
       clearInterval(sceneTimer);
-      setTimeout(closeArcade, 2400); // se cierra sola tras la última escena
+      setTimeout(closeArcade, 2900); // se cierra sola tras la última escena
       return;
     }
     showScene(sceneIndex);
-  }, 4500);
+  }, 5200);
 
   const stages = document.querySelectorAll('[data-stage]');
   const io = new IntersectionObserver((entries)=>{

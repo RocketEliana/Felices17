@@ -75,31 +75,37 @@
   .scene-slide .fig{ opacity:0; animation:none; }
 
   /* escena 1: nace el bebé */
-  .scene-slide.active .baby{ animation:babyPop .7s ease forwards .1s; }
+  .scene-slide.active .baby{ animation:babyPop .9s ease forwards .1s; }
   @keyframes babyPop{ to{ opacity:1; transform:scale(1); } }
-  .scene-slide.active .parentL{ animation:walkIn .8s ease forwards .3s; }
-  .scene-slide.active .parentR{ animation:walkInR .8s ease forwards .3s; }
+  .scene-slide.active .parentL{ animation:walkIn 1s ease forwards .3s; }
+  .scene-slide.active .parentR{ animation:walkInR 1s ease forwards .3s; }
   @keyframes walkIn{ from{opacity:0; transform:translateX(-70px);} to{opacity:1; transform:translateX(0);} }
   @keyframes walkInR{ from{opacity:0; transform:translateX(70px);} to{opacity:1; transform:translateX(0);} }
-  .scene-slide.active .armL, .scene-slide.active .armR{ animation:hug .6s ease forwards 1.3s; }
+  .scene-slide.active .armL, .scene-slide.active .armR{ animation:hug .8s ease forwards 1.4s; }
   @keyframes hug{ to{ opacity:1; } }
 
-  /* corazones / chispas reutilizables en varias escenas */
-  .scene-slide.active .heart{ animation:floatHeart 2.2s ease-in forwards; }
+  /* corazones / chispas reutilizables en varias escenas: estallido radial */
+  .scene-slide.active .heart{ animation:burstHeart 2.8s ease-out forwards; }
   .scene-slide.active .heart1{ animation-delay:1.6s; }
-  .scene-slide.active .heart2{ animation-delay:1.9s; }
-  .scene-slide.active .heart3{ animation-delay:2.2s; }
+  .scene-slide.active .heart2{ animation-delay:1.85s; }
+  .scene-slide.active .heart3{ animation-delay:2.1s; }
   .scene-slide.active .heart4{ animation-delay:1.7s; }
-  .scene-slide.active .heart5{ animation-delay:2s; }
-  .scene-slide.active .heart6{ animation-delay:2.3s; }
-  @keyframes floatHeart{
-    0%{ opacity:0; transform:translateY(0) scale(.6); }
-    20%{ opacity:1; }
-    100%{ opacity:0; transform:translateY(-70px) scale(1); }
+  .scene-slide.active .heart5{ animation-delay:1.95s; }
+  .scene-slide.active .heart6{ animation-delay:2.2s; }
+  .scene-slide.active .heart7{ animation-delay:1.75s; }
+  .scene-slide.active .heart8{ animation-delay:2s; }
+  .scene-slide.active .heart9{ animation-delay:1.9s; }
+  .scene-slide.active .heart10{ animation-delay:2.15s; }
+  .scene-slide.active .heart11{ animation-delay:1.8s; }
+  .scene-slide.active .heart12{ animation-delay:2.05s; }
+  @keyframes burstHeart{
+    0%{ opacity:0; transform:translate(0,0) scale(.4); }
+    22%{ opacity:1; transform:translate(calc(var(--tx,0px) * .35), calc(var(--ty,-40px) * .35)) scale(1); }
+    100%{ opacity:0; transform:translate(var(--tx,0px), var(--ty,-70px)) scale(1.15); }
   }
 
   /* escena 2: primeros pasos */
-  .scene-slide.active .toddler{ animation:toddlerWalk 2.6s ease-in-out forwards .2s; }
+  .scene-slide.active .toddler{ animation:toddlerWalk 3.2s ease-in-out forwards .2s; }
   @keyframes toddlerWalk{
     0%{ opacity:0; transform:translate(-100px,0); }
     12%{ opacity:1; }
@@ -109,22 +115,22 @@
     100%{ opacity:1; transform:translate(100px,0); }
   }
   .scene-slide.active .cheerL, .scene-slide.active .cheerR{
-    opacity:1; animation:cheer .45s ease-in-out infinite alternate .3s;
+    opacity:1; animation:cheer .55s ease-in-out infinite alternate .3s;
   }
   @keyframes cheer{ from{ transform:rotate(0deg); } to{ transform:rotate(-30deg); } }
 
   /* escena 3: jugando con legos */
-  .scene-slide.active .legoKid{ animation:popIn .6s ease forwards .1s; }
+  .scene-slide.active .legoKid{ animation:popIn .8s ease forwards .1s; }
   @keyframes popIn{ from{ opacity:0; transform:scale(.7); } to{ opacity:1; transform:scale(1); } }
-  .scene-slide.active .legoArm{ animation:reach 1s ease-in-out infinite .5s; opacity:1; }
+  .scene-slide.active .legoArm{ animation:reach 1.3s ease-in-out infinite .5s; opacity:1; }
   @keyframes reach{
     0%,100%{ transform:rotate(0deg); }
     50%{ transform:rotate(-22deg); }
   }
-  .scene-slide.active .block1{ animation:blockPop .4s ease forwards .6s; }
-  .scene-slide.active .block2{ animation:blockPop .4s ease forwards 1.1s; }
-  .scene-slide.active .block3{ animation:blockPop .4s ease forwards 1.6s; }
-  .scene-slide.active .block4{ animation:blockPop .4s ease forwards 2.1s; }
+  .scene-slide.active .block1{ animation:blockPop .5s ease forwards .7s; }
+  .scene-slide.active .block2{ animation:blockPop .5s ease forwards 1.3s; }
+  .scene-slide.active .block3{ animation:blockPop .5s ease forwards 1.9s; }
+  .scene-slide.active .block4{ animation:blockPop .5s ease forwards 2.5s; }
   @keyframes blockPop{
     0%{ opacity:0; transform:translateY(10px) scale(.5); }
     60%{ opacity:1; transform:translateY(-3px) scale(1.1); }
@@ -132,15 +138,23 @@
   }
 
   /* escena 4: amigos, choque de manos */
-  .scene-slide.active .teenL{ animation:walkIn .8s ease forwards .1s; }
-  .scene-slide.active .teenR{ animation:walkInR .8s ease forwards .1s; }
-  .scene-slide.active .highfive{ animation:hifive .45s ease forwards 1.1s; }
-  @keyframes hifive{ to{ opacity:1; transform:translateY(-12px); } }
+  .scene-slide.active .teenL{ animation:walkIn 1s ease forwards .1s; }
+  .scene-slide.active .teenR{ animation:walkInR 1s ease forwards .1s; }
+  .scene-slide.active .highfive{ animation:hifiveBurst .9s ease-out forwards; }
+  .scene-slide.active .highfive1{ animation-delay:1.1s; }
+  .scene-slide.active .highfive2{ animation-delay:1.2s; }
+  .scene-slide.active .highfive3{ animation-delay:1.2s; }
+  .scene-slide.active .highfive4{ animation-delay:1.3s; }
+  @keyframes hifiveBurst{
+    0%{ opacity:0; transform:translate(0,0) scale(.5); }
+    30%{ opacity:1; }
+    100%{ opacity:0; transform:translate(var(--tx,0px), var(--ty,-20px)) scale(1.1); }
+  }
 
   /* escena 5: hoy, abrazo grande */
-  .scene-slide.active .grownL{ animation:walkIn .8s ease forwards .1s; }
-  .scene-slide.active .grownR{ animation:walkInR .8s ease forwards .1s; }
-  .scene-slide.active .bigHug{ animation:hug .6s ease forwards 1.1s; }
+  .scene-slide.active .grownL{ animation:walkIn 1s ease forwards .1s; }
+  .scene-slide.active .grownR{ animation:walkInR 1s ease forwards .1s; }
+  .scene-slide.active .bigHug{ animation:hug .8s ease forwards 1.2s; }
 
   .scene-text{
     text-align:center; margin-top:24px; color:var(--muted);
