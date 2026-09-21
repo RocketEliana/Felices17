@@ -1,25 +1,38 @@
   // Intenta reproducir la música al cargar; si el navegador lo bloquea,
-  // arranca con el primer toque/clic/tecla en cualquier parte de la página
+  // muestra un botón a juego con la web y también arranca con el primer
+  // toque/clic/tecla en cualquier parte de la página
   (function(){
     const music = document.getElementById('bgMusic');
+    const prompt = document.getElementById('musicPrompt');
     if(!music) return;
     music.volume = 0.85;
 
-    function startOnFirstInteraction(){
+    function hidePrompt(){
+      if(prompt){ prompt.classList.add('hide'); prompt.classList.remove('show'); }
+    }
+
+    function startMusic(){
       music.play().catch(()=>{});
+      hidePrompt();
       ['click','touchstart','keydown'].forEach(evt =>
-        document.removeEventListener(evt, startOnFirstInteraction)
+        document.removeEventListener(evt, startMusic)
       );
+      if(prompt) prompt.removeEventListener('click', startMusic);
     }
 
     const playPromise = music.play();
     if(playPromise !== undefined){
-      playPromise.catch(()=>{
+      playPromise.then(()=>{
+        hidePrompt();
+      }).catch(()=>{
+        if(prompt) setTimeout(()=> prompt.classList.add('show'), 800);
         ['click','touchstart','keydown'].forEach(evt =>
-          document.addEventListener(evt, startOnFirstInteraction, { once:true })
+          document.addEventListener(evt, startMusic, { once:true })
         );
       });
     }
+
+    if(prompt) prompt.addEventListener('click', startMusic);
   })();
 
   // Genera un campo de estrellitas titilando por toda la página
