@@ -121,8 +121,31 @@
         </svg>
       </div>
 
-      <!-- ESCENA 4: amigos, choque de manos -->
+      <!-- ESCENA 4 (nueva): superheroína, grandes juegos -->
       <div class="scene-slide" data-scene="3">
+        <svg viewBox="0 0 400 260">
+          <!-- capa -->
+          <path class="fig heroCape" d="M200,102 C168,140 148,205 163,238 L200,212 L237,238 C252,205 232,140 200,102 Z" fill="#c96a4f" />
+          <!-- coletas -->
+          <g class="fig hero" stroke="#e8b84b" stroke-width="4" fill="none" stroke-linecap="round">
+            <line x1="184" y1="80" x2="168" y2="66" />
+            <line x1="216" y1="80" x2="232" y2="66" />
+            <circle cx="200" cy="90" r="17" />
+            <line x1="200" y1="107" x2="200" y2="175" />
+            <path d="M200,124 C180,118 168,132 172,150" />
+            <path d="M200,124 C220,118 232,132 228,150" />
+            <line x1="200" y1="175" x2="176" y2="230" />
+            <line x1="200" y1="175" x2="224" y2="222" />
+          </g>
+          <!-- chispitas de celebración -->
+          <text class="fig heart" x="140" y="80" font-size="16" fill="#e8b84b" style="--tx:-30px;--ty:-40px; animation-delay:1.4s">✦</text>
+          <text class="fig heart" x="260" y="80" font-size="16" fill="#e8768a" style="--tx:30px;--ty:-40px; animation-delay:1.6s">✦</text>
+          <text class="fig heart" x="200" y="45" font-size="14" fill="#f5f0e6" style="--tx:0px;--ty:-50px; animation-delay:1.5s">✦</text>
+        </svg>
+      </div>
+
+      <!-- ESCENA 5: amigos, choque de manos -->
+      <div class="scene-slide" data-scene="4">
         <svg viewBox="0 0 400 260">
           <text class="fig highfive highfive1" x="200" y="110" font-size="20" fill="#e8b84b" text-anchor="middle" style="--tx:0px;--ty:-20px">✦</text>
           <text class="fig highfive highfive2" x="175" y="115" font-size="13" fill="#e8768a" text-anchor="middle" style="--tx:-26px;--ty:-14px">✦</text>
@@ -147,8 +170,8 @@
         </svg>
       </div>
 
-      <!-- ESCENA 5: hoy, abrazo grande -->
-      <div class="scene-slide" data-scene="4">
+      <!-- ESCENA 6: hoy, abrazo grande -->
+      <div class="scene-slide" data-scene="5">
         <svg viewBox="0 0 400 260">
           <text class="fig heart heart1" x="150" y="90" font-size="18" fill="#e8768a" style="--tx:-40px;--ty:-58px">♥</text>
           <text class="fig heart heart2" x="250" y="80" font-size="16" fill="#e8b84b" style="--tx:40px;--ty:-60px">✦</text>
@@ -182,7 +205,7 @@
 
     <div class="scene-text" id="sceneText">Naciste, y desde ese día te quisimos y cuidamos</div>
     <div class="scene-dots" id="sceneDots">
-      <span class="active"></span><span></span><span></span><span></span><span></span>
+      <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
     </div>
     <div class="scene-hint">toca para saltar</div>
   </div>

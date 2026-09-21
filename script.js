@@ -67,6 +67,7 @@
     'Naciste, y desde ese día te quisimos y cuidamos',
     'Diste tus primeros pasos… y no has parado desde entonces',
     'Cada día era una aventura nueva por descubrir',
+    'Y siempre lista para grandes juegos, como toda una heroína',
     'Y en cada etapa, ibas siendo más tú',
     'Y hoy, sigues siendo nuestro pedazo de persona favorito'
   ];
