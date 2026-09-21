@@ -8,54 +8,61 @@
     if(!music) return;
     music.volume = 0.85;
 
-    let playing = false, userPaused = false, missing = false;
+    let userPaused = false, missing = false, reallyPlaying = false, lastStart = 0;
 
-    function setPlayingUI(isPlaying){
-      playing = isPlaying;
+    function setPlayingUI(on){
       if(!prompt) return;
-      prompt.classList.toggle('is-playing', isPlaying);
+      prompt.classList.toggle('is-playing', on);
       const label = prompt.querySelector('.music-text');
-      if(label) label.textContent = missing ? 'no encuentro cancion.mp3' : (isPlaying ? 'música activada' : 'tócame, es para ti');
+      if(label) label.textContent = missing ? 'no puedo cargar la canción' : (on ? 'música activada' : 'tócame, es para ti');
     }
 
-    // Intento silencioso de autoplay (funciona en algunos navegadores/casos)
-    const playPromise = music.play();
-    if(playPromise !== undefined){
-      playPromise.then(()=> setPlayingUI(true)).catch(()=> setPlayingUI(false));
+    // Solo damos la música por sonando cuando el audio AVANZA de verdad.
+    // (En el navegador de WhatsApp, play() puede decir que sí sin que suene nada.)
+    music.addEventListener('timeupdate', ()=>{
+      if(!reallyPlaying && !music.paused && !music.muted && music.currentTime > 0.3){
+        reallyPlaying = true; setPlayingUI(true); removeTap();
+      }
+    });
+    music.addEventListener('pause', ()=>{ reallyPlaying = false; setPlayingUI(false); });
+
+    function start(){
+      // si quedó "colgado" (dice que reproduce pero no avanza), lo reiniciamos
+      if(!music.paused && !reallyPlaying){
+        if(Date.now() - lastStart < 2500) return;
+        music.pause();
+      }
+      lastStart = Date.now();
+      music.muted = false;
+      const p = music.play();
+      if(p && p.catch) p.catch(()=>{});
     }
 
-    // El botón siempre visible: toca para reproducir o pausar
+    // Intento de autoplay al cargar (casi siempre lo bloquean los móviles)
+    start();
+
+    // Botón siempre visible: toca para reproducir o pausar
     if(prompt){
-      prompt.addEventListener('click', () => {
-        if(music.paused){
-          music.play().then(()=> setPlayingUI(true)).catch(()=> setPlayingUI(false));
-        } else {
-          userPaused = true;
-          music.pause();
-          setPlayingUI(false);
-        }
+      prompt.addEventListener('click', ()=>{
+        if(reallyPlaying){ userPaused = true; music.pause(); }
+        else { userPaused = false; start(); }
       });
     }
 
-    // Refleja el estado real del audio si cambia por otra vía
-    music.addEventListener('pause', ()=> setPlayingUI(false));
-    music.addEventListener('play', ()=> setPlayingUI(true));
-
-    // Los navegadores bloquean el autoplay con sonido: el primer toque en cualquier
-    // parte de la página (p. ej. al saltar la intro) arranca la música.
-    const tapEvents = ['pointerdown','pointerup','touchend','click','keydown'];
+    // El primer toque en cualquier parte (p. ej. al saltar la intro) arranca la música
+    const tapEvents = ['touchend','pointerup','click','keydown'];
     function removeTap(){ tapEvents.forEach(ev=> document.removeEventListener(ev, firstTap, true)); }
     function firstTap(e){
       if(e.target.closest && e.target.closest('#musicPrompt')) return; // el botón ya hace lo suyo
-      if(userPaused){ removeTap(); return; }
-      if(!music.paused){ removeTap(); return; }
-      music.play().then(()=>{ setPlayingUI(true); removeTap(); }).catch(()=>{});
+      if(userPaused || reallyPlaying) return;
+      start();
     }
     tapEvents.forEach(ev=> document.addEventListener(ev, firstTap, true));
 
-    // Si no encuentra ninguno de los archivos de audio, lo dice en el botón
-    const lastSrc = music.querySelector('source:last-of-type');
-    if(lastSrc) lastSrc.addEventListener('error', ()=>{ missing = true; setPlayingUI(false); });
+    // Si no encuentra o no puede leer el audio, lo dice en el botón
+    const src = music.querySelector('source');
+    if(src) src.addEventListener('error', ()=>{ missing = true; setPlayingUI(false); });
+    music.addEventListener('error', ()=>{ missing = true; setPlayingUI(false); });
   })();
 
   // Genera un campo de estrellitas titilando por toda la página
