@@ -8,14 +8,14 @@
     if(!music) return;
     music.volume = 0.85;
 
-    let playing = false;
+    let playing = false, userPaused = false, missing = false;
 
     function setPlayingUI(isPlaying){
       playing = isPlaying;
       if(!prompt) return;
       prompt.classList.toggle('is-playing', isPlaying);
       const label = prompt.querySelector('.music-text');
-      if(label) label.textContent = isPlaying ? 'música activada' : 'tócame, es para ti';
+      if(label) label.textContent = missing ? 'no encuentro cancion.mp3' : (isPlaying ? 'música activada' : 'tócame, es para ti');
     }
 
     // Intento silencioso de autoplay (funciona en algunos navegadores/casos)
@@ -30,6 +30,7 @@
         if(music.paused){
           music.play().then(()=> setPlayingUI(true)).catch(()=> setPlayingUI(false));
         } else {
+          userPaused = true;
           music.pause();
           setPlayingUI(false);
         }
@@ -39,6 +40,22 @@
     // Refleja el estado real del audio si cambia por otra vía
     music.addEventListener('pause', ()=> setPlayingUI(false));
     music.addEventListener('play', ()=> setPlayingUI(true));
+
+    // Los navegadores bloquean el autoplay con sonido: el primer toque en cualquier
+    // parte de la página (p. ej. al saltar la intro) arranca la música.
+    const tapEvents = ['pointerdown','pointerup','touchend','click','keydown'];
+    function removeTap(){ tapEvents.forEach(ev=> document.removeEventListener(ev, firstTap, true)); }
+    function firstTap(e){
+      if(e.target.closest && e.target.closest('#musicPrompt')) return; // el botón ya hace lo suyo
+      if(userPaused){ removeTap(); return; }
+      if(!music.paused){ removeTap(); return; }
+      music.play().then(()=>{ setPlayingUI(true); removeTap(); }).catch(()=>{});
+    }
+    tapEvents.forEach(ev=> document.addEventListener(ev, firstTap, true));
+
+    // Si no encuentra ninguno de los archivos de audio, lo dice en el botón
+    const lastSrc = music.querySelector('source:last-of-type');
+    if(lastSrc) lastSrc.addEventListener('error', ()=>{ missing = true; setPlayingUI(false); });
   })();
 
   // Genera un campo de estrellitas titilando por toda la página
@@ -68,9 +85,8 @@
     'Diste tus primeros pasos… y no has parado desde entonces',
     'Cada día era una aventura nueva por descubrir',
     'Y siempre listo para grandes juegos, como todo un gran heroe,nuestro heroe',
-    'Siempre hubo alguien sujetando la bici… hasta que un día te soltó y echaste a volar',
+    'Tardes enteras de videojuegos, jugando juntos y celebrando cada victoria',
     'Cada cumpleaños, un deseo nuevo y todos aplaudiendo a tu lado',
-    'Y qué ratos jugando juntos, pase a pase',
     'Y en cada etapa, ibas siendo más tú',
     'Y hoy, sigues siendo nuestro pedazo de persona favorito'
   ];
@@ -111,7 +127,7 @@
   // Solo: nacimiento, soplar las velas y el abrazo final
   const loveScript = [
     [[4.6,'b',50,52,10]], [], [], [], [],
-    [[4.9,'b',56,60,12]], [], [],
+    [[4.9,'b',56,60,12]], [],
     [[2.6,'b',50,55,12],[4.2,'big',50,30,2.2]]
   ];
   function scheduleLove(i){

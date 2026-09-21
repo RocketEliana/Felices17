@@ -144,31 +144,35 @@
         </svg>
       </div>
 
-      <!-- ESCENA NUEVA: aprendiendo a ir en bici -->
-      <div class="scene-slide" data-scene="bici">
+      <!-- ESCENA NUEVA: videojuegos -->
+      <div class="scene-slide" data-scene="videojuegos">
         <svg viewBox="0 0 400 260">
-          <g class="fig bikeParent" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round">
-            <circle cx="135" cy="105" r="17" />
-            <line x1="135" y1="122" x2="135" y2="190" />
-            <line class="holdArm" x1="135" y1="142" x2="190" y2="182" />
-            <line class="waveArm" x1="135" y1="142" x2="162" y2="108" style="opacity:0" />
-            <line x1="135" y1="142" x2="112" y2="168" />
-            <line x1="135" y1="190" x2="118" y2="238" />
-            <line x1="135" y1="190" x2="152" y2="236" />
+          <g class="fig gameTV" style="transform-origin:290px 238px">
+            <rect x="230" y="196" width="120" height="42" rx="4" fill="#1f1f2a" stroke="#3a3f52" stroke-width="3" />
+            <line x1="290" y1="170" x2="290" y2="196" stroke="#5b8fc9" stroke-width="4" />
+            <rect x="215" y="60" width="150" height="110" rx="8" fill="#0b0d14" stroke="#5b8fc9" stroke-width="5" />
+            <line x1="290" y1="68" x2="290" y2="162" stroke="#3a3f52" stroke-width="2" stroke-dasharray="4 6" />
+            <rect class="paddleL" x="226" y="100" width="6" height="30" rx="2" fill="#e8b84b" />
+            <rect class="paddleR" x="348" y="100" width="6" height="30" rx="2" fill="#f5f0e6" />
+            <g class="pongX"><g class="pongY"><rect x="286" y="111" width="8" height="8" fill="#f5f0e6" /></g></g>
           </g>
-          <g class="fig bikeRide" stroke-width="4" fill="none" stroke-linecap="round">
-            <g stroke="#5b8fc9">
-              <g class="wheel" style="transform-origin:165px 215px"><circle cx="165" cy="215" r="22" /><line x1="165" y1="193" x2="165" y2="237" /><line x1="143" y1="215" x2="187" y2="215" /></g>
-              <g class="wheel" style="transform-origin:235px 215px"><circle cx="235" cy="215" r="22" /><line x1="235" y1="193" x2="235" y2="237" /><line x1="213" y1="215" x2="257" y2="215" /></g>
-              <path d="M165,215 L190,182 L226,180 L235,215 M190,182 L200,215 L226,180 M226,180 L226,168 L238,168" />
-            </g>
-            <g stroke="#e8b84b">
-              <circle cx="192" cy="143" r="13" />
-              <line x1="192" y1="156" x2="192" y2="180" />
-              <path d="M192,164 L232,168" />
-              <path d="M192,180 L208,198 L200,215" />
-            </g>
+          <g class="fig gameAdult" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round" style="transform-origin:70px 238px">
+            <circle cx="50" cy="122" r="17" />
+            <line x1="50" y1="139" x2="50" y2="205" />
+            <path d="M50,205 L100,205 L100,238" />
+            <line x1="50" y1="158" x2="80" y2="178" /><line x1="50" y1="164" x2="80" y2="184" />
+            <rect class="pad" x="78" y="176" width="22" height="11" rx="4" fill="#c96a4f" stroke="none" style="transform-origin:89px 181px" />
           </g>
+          <g class="fig gameKid" stroke="#e8b84b" stroke-width="4" fill="none" stroke-linecap="round" style="transform-origin:130px 238px">
+            <circle cx="122" cy="152" r="14" />
+            <line x1="120" y1="166" x2="116" y2="208" />
+            <path d="M116,208 L150,208 L150,238" />
+            <line x1="119" y1="178" x2="144" y2="188" /><line x1="119" y1="184" x2="144" y2="192" />
+            <rect class="pad" x="138" y="185" width="22" height="11" rx="4" fill="#5b8fc9" stroke="none" style="transform-origin:149px 190px" />
+          </g>
+          <text class="fig heart" x="240" y="60" font-size="16" fill="#e8b84b" style="--tx:-30px;--ty:-36px; animation-delay:5s">✦</text>
+          <text class="fig heart" x="340" y="60" font-size="16" fill="#f5f0e6" style="--tx:30px;--ty:-36px; animation-delay:5.2s">✦</text>
+          <text class="fig heart" x="290" y="48" font-size="14" fill="#e8b84b" style="--tx:0px;--ty:-46px; animation-delay:5.4s">✦</text>
         </svg>
       </div>
 
@@ -199,27 +203,6 @@
           <ellipse class="fig flame" cx="212" cy="157" rx="3.5" ry="6" fill="#ffb347" style="transform-origin:212px 163px" />
           <ellipse class="fig flame" cx="225" cy="157" rx="3.5" ry="6" fill="#ffb347" style="transform-origin:225px 163px" />
           <ellipse class="fig flame" cx="238" cy="157" rx="3.5" ry="6" fill="#ffb347" style="transform-origin:238px 163px" />
-        </svg>
-      </div>
-
-      <!-- ESCENA NUEVA: jugando a la pelota -->
-      <div class="scene-slide" data-scene="balon">
-        <svg viewBox="0 0 400 260">
-          <g class="fig ballKid" stroke="#e8b84b" stroke-width="4" fill="none" stroke-linecap="round">
-            <circle cx="110" cy="150" r="14" /><line x1="110" y1="164" x2="110" y2="205" />
-            <line x1="110" y1="176" x2="85" y2="190" /><line x1="110" y1="176" x2="135" y2="188" />
-            <line x1="110" y1="205" x2="96" y2="238" /><line x1="110" y1="205" x2="124" y2="238" />
-          </g>
-          <g class="fig ballAdult" stroke="#f5f0e6" stroke-width="4" fill="none" stroke-linecap="round">
-            <circle cx="290" cy="100" r="17" /><line x1="290" y1="117" x2="290" y2="190" />
-            <line x1="290" y1="138" x2="320" y2="160" /><line x1="290" y1="138" x2="262" y2="158" />
-            <line x1="290" y1="190" x2="272" y2="238" /><line x1="290" y1="190" x2="308" y2="238" />
-          </g>
-          <g class="fig ballWrap" style="transform-origin:135px 228px">
-            <g class="ballX"><g class="ballY">
-              <circle cx="135" cy="228" r="9" fill="#f5f0e6" /><circle cx="135" cy="228" r="3.2" fill="#12141c" />
-            </g></g>
-          </g>
         </svg>
       </div>
 
@@ -285,7 +268,7 @@
 
     <div class="scene-text" id="sceneText">Naciste, y desde ese día te quisimos y cuidamos</div>
     <div class="scene-dots" id="sceneDots">
-      <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+      <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
     <div class="scene-hint">toca para saltar</div>
   </div>
