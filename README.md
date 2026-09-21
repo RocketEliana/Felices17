@@ -6,7 +6,9 @@ Web estática (sin frameworks) lista para desplegar en Vercel.
 ```
 index.html   → estructura de la página
 style.css    → todos los estilos y animaciones
-script.js    → la intro con monigotes, el desplazamiento y el brillo de fondo
+script.js    → la intro con monigotes, el desplazamiento, el brillo de fondo y la música
+cancion.m4a  → la canción de fondo (suena sola al cargar; si el navegador la
+               bloquea, arranca en cuanto se toca la pantalla una vez)
 anime/       → aquí van todas las fotos
 ```
 
@@ -18,9 +20,9 @@ cambia la extensión en el `src` correspondiente dentro de `index.html`):
 |---------------------|--------------------------------------------|
 | 0 — 1 año           | foto1.jpg, foto2.jpg                      |
 | Infancia            | foto3.jpg, foto4.jpg, foto5.jpg           |
-| Colegio             | foto6.jpg, foto7.jpg                      |
+| Mejores momentos    | foto6.jpg, foto7.jpg                      |
 | Adolescencia        | foto8.jpg, foto9.jpg                      |
-| Amigos y risas      | foto10.jpg, foto11.jpg, foto12.jpg        |
+| Grandes recuerdos   | foto10.jpg, foto11.jpg, foto12.jpg        |
 | Hoy                 | actual1.jpg, actual2.jpg                  |
 
 Si falta alguna foto, esa tarjeta muestra automáticamente un aviso en vez de romperse.

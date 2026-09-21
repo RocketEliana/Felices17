@@ -1,3 +1,27 @@
+  // Intenta reproducir la música al cargar; si el navegador lo bloquea,
+  // arranca con el primer toque/clic/tecla en cualquier parte de la página
+  (function(){
+    const music = document.getElementById('bgMusic');
+    if(!music) return;
+    music.volume = 0.85;
+
+    function startOnFirstInteraction(){
+      music.play().catch(()=>{});
+      ['click','touchstart','keydown'].forEach(evt =>
+        document.removeEventListener(evt, startOnFirstInteraction)
+      );
+    }
+
+    const playPromise = music.play();
+    if(playPromise !== undefined){
+      playPromise.catch(()=>{
+        ['click','touchstart','keydown'].forEach(evt =>
+          document.addEventListener(evt, startOnFirstInteraction, { once:true })
+        );
+      });
+    }
+  })();
+
   // Genera un campo de estrellitas titilando por toda la página
   (function(){
     const field = document.getElementById('sparkleField');
