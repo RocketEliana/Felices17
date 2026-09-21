@@ -8,7 +8,10 @@
 </head>
 <body>
   <div class="sparkle-field" id="sparkleField"></div>
-  <audio id="bgMusic" src="cancion.m4a" loop preload="auto"></audio>
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="cancion.m4a" type="audio/mp4">
+    <source src="cancion.mp3" type="audio/mpeg">
+  </audio>
 
   <button id="musicPrompt" class="music-prompt" aria-label="Activar música">
     <span class="music-note">♫</span>
@@ -171,7 +174,7 @@
 
   <!-- PORTADA -->
   <section class="cover">
-    <h1><span class="shine-text">Alex,mi bichito — de bebé a pedazo de persona</span></h1>
+    <h1><span class="shine-text">NOMBRE — de bebé a pedazo de persona</span></h1>
     <p>Un repaso a todos estos años</p>
     <div class="scrolldown">↓ desliza</div>
   </section>

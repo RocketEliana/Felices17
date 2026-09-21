@@ -7,8 +7,10 @@ Web estática (sin frameworks) lista para desplegar en Vercel.
 index.html   → estructura de la página
 style.css    → todos los estilos y animaciones
 script.js    → la intro con monigotes, el desplazamiento, el brillo de fondo y la música
-cancion.m4a  → la canción de fondo (suena sola al cargar; si el navegador la
-               bloquea, arranca en cuanto se toca la pantalla una vez)
+cancion.m4a  → la canción de fondo (formato principal)
+cancion.mp3  → copia de la misma canción en mp3, como respaldo por si el
+               móvil no soporta el m4a (suena sola al cargar; si el
+               navegador la bloquea, arranca en cuanto se toca la pantalla)
 anime/       → aquí van todas las fotos
 ```
 
